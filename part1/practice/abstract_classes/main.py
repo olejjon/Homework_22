@@ -1,12 +1,4 @@
-# Создайте абстрактный класс автомобиля Transport c абстрактными методами
-# - start_engine
-# - stop_engine
-# - move
-# - stop
-
-# Унаследуйте от него три класса Boat, Car, Electroscooter
-# для каждого из требуемых методов через print укажите какое-либо действие.
-# К примеру start_engine -> print('Двигатель катера запущен')
+from abc import ABC, abstractmethod
 
 # Создайте класс Person у которого будет один единственный метод use_transport.
 # В данный метод в качестве параметра должен передаваться объект реализующий интерфейс Transport
@@ -39,8 +31,74 @@
 
 # код должен выполняться не выбрасывая исключений
 
-# TODO напишите Ваш код здесь
 
+# TODO напишите Ваш код здесь
+class Transport(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+    @abstractmethod
+    def stop_engine(self):
+        pass
+
+    @abstractmethod
+    def move(self):
+        pass
+
+    @abstractmethod
+    def stop(self):
+        pass
+
+
+class Boat(Transport):
+    def start_engine(self):
+        print('Заводиться катер')
+
+    def stop_engine(self):
+        print('Заглох')
+
+    def move(self):
+        print('Вжух по морю')
+
+    def stop(self):
+        print('Остановочка с якорем')
+
+
+class Car(Transport):
+    def start_engine(self):
+        print('Заводиться тачка')
+
+    def stop_engine(self):
+        print('Заглохла(((')
+
+    def move(self):
+        print('Вжух по автостраде')
+
+    def stop(self):
+        print('Остановочка')
+
+
+class Electroscooter(Transport):
+    def start_engine(self):
+        print('Не слышно ничего')
+
+    def stop_engine(self):
+        print('Опять не слышно')
+
+    def move(self):
+        print('Едем беззвучно')
+
+    def stop(self):
+        print('Электро-остановочка')
+
+
+class Person():
+    def use_transport(self, transport: Transport):
+        transport.start_engine()
+        transport.move()
+        transport.stop()
+        transport.stop_engine()
 
 # Отрезок кода для самопроверки.
 # Запустите его, после того как выполните задание

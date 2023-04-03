@@ -10,12 +10,9 @@ class SomeClass:
     def __init__(self):
         self.lst = [3, 2, 1, 4, 2, 1]
 
-    def sorted(self):
-        self.lst.sort()
-        return self.lst
+    def func_sorting(self, reverse: bool = False):
+        return sorted(self.lst, reverse=reverse)
 
-    def sorting(self):
-        return sorted(self.lst)
 
-    def asc_sorting(self):
-        return sorted(self.lst, reverse=False)
+some_class = SomeClass()
+print(some_class.func_sorting())
